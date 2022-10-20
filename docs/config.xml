@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<archivoConfiguraciones>
+    <listaRecursos>
+        <recurso id="$idRecurso">
+            <nombre> $nombreRecurso </nombre>
+            <abreviatura> $abreviaturaRecurso </abreviatura>
+            <metrica> $NombreMetrica </metrica>
+            <tipo> $tipoRecurso </tipo>
+            <valorXhora> valorNumerico </valorXhora>
+        </recurso>
+ ...
+    </listaRecursos>
+    <listaCategorias>
+        <categoria id="$idCateoria">
+            <nombre> $nombreCategoria </nombre>
+            <descripcion> $descripcionCategoria </descripcion>
+            <cargaTrabajo> $descripcionCargaTrabajo </cargaTrabajo>
+            <listaConfiguraciones>
+                <configuracion id="$idConfiguracion">
+                    <nombre> $nombreConfiguracion </nombre>
+                    <descripcion> $descripcionConfiguracion </descripcion>
+                    <recursosConfiguracion>
+                        <recurso id="$idRecurso"> cantidadRecurso </recurso>
+ ...
+                    </recursosConfiguracion>
+                </configuracion>
+...
+            </listaConfiguraciones>
+        </categoria>
+ ...
+    </listaCategorias>
+    <listaClientes>
+        <cliente nit="$nitCliente">
+            <nombre> $nombreCliente </nombre>
+            <usuario> $nombreUsuario </usuario>
+            <clave> $claveUsuario </clave>
+            <direccion> $direccionCliente </direccion>
+            <correoElectronico> $eMailCliente </correoElectronico>
+            <listaInstancias>
+                <instancia id="idInstancia">
+                    <idConfiguracion> $idConfiguracion </idConfiguracion>
+                    <nombre> $nombreInstancia </nombre>
+                    <fechaInicio> $descripcionFecha </fechaInicio>
+                    <estado> $estado </estado>
+                    <fechaFinal> $descripcionFecha </fechaFinal>
+                </instancia>
+ ...
+            </listaInstancias>
+ ...
+        </cliente>
+ ...
+    </listaClientes>
+</archivoConfiguraciones>
