@@ -24,23 +24,23 @@ class Gestor:
         self.categorias.append(nuevo)
         return True
     
-    def agregarConfiguracion(self,ide,nombre,descripcion,cargaTrabajo):
-        nuevo=Configuracion(ide,nombre,descripcion,cargaTrabajo)
+    def agregarConfiguracion(self,ide,nombre,descripcion,recursosConfiguracion):
+        nuevo=Configuracion(ide,nombre,descripcion,recursosConfiguracion)
         self.configuraciones.append(nuevo)
         return True
     
-    def agregarRecurso(self,ide,nombre,descripcion,cargaTrabajo):
-        nuevo=Recurso(ide,nombre,descripcion,cargaTrabajo)
+    def agregarRecurso(self,ide,nombre,abreviatura,metrica,tipo,valorXHora):
+        nuevo=Recurso(ide,nombre,abreviatura,metrica,tipo,valorXHora)
         self.recursos.append(nuevo)
         return True
     
-    def agregarCliente(self,ide,nombre,descripcion,cargaTrabajo):
-        nuevo=Cliente(ide,nombre,descripcion,cargaTrabajo)
+    def agregarCliente(self,nit,nombre,usuario,clave,direccion,correo):
+        nuevo=Cliente(nit,nombre,usuario,clave,direccion,correo)
         self.clientes.append(nuevo)
         return True
     
-    def agregarInstancia(self,ide,nombre,descripcion,cargaTrabajo):
-        nuevo=Instancia(ide,nombre,descripcion,cargaTrabajo)
+    def agregarInstancia(self,ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal):
+        nuevo=Instancia(ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal)
         self.instancias.append(nuevo)
         return True
         

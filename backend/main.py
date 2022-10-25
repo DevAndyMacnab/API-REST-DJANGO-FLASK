@@ -17,6 +17,7 @@ def home():
     
  #RUTAS CORRESPONDIENTES PARA NUESTRO BACKEND: ACA IRAN ENLAZADAS LAS FUNCIONES CREADAS CON POO   
     
+#CARGADO DE DATOS MASIVOS POR MEDIO DE ARCHIVOS XML
 @app.route('/config', methods=["POST"])
 def config():
     if request.method=='POST':
@@ -38,10 +39,14 @@ def consultarDatos():
         "succes":True
     })
     
+    #RUTAS PARA INGRESAR DATOS DE MANERA INDIVIDUAL DEPENDIENDO LA CATEGORIA REQUERIDA
 @app.route("/crearrecurso", methods=["POST"])
 def crearRecurso():
+    json=request.get_json()
+    gestor.agregarRecurso(json["ide"],json["nombre"],json["abreviatura"],json["metrica"],json["tipo"],json["valorxhora"])
     return jsonify({
-        "succes":True
+        "succes":True,
+        "message":"Se ha creado el recurso nuevo correctamente"
     })
     
 @app.route("/crearcategoria", methods=["POST"])
@@ -60,20 +65,36 @@ def crearCategoria():
     
 @app.route("/crearconfiguracion", methods=["POST"])
 def crearConfiguracion():
+    
+    json=request.get_json()
+    gestor.agregarConfiguracion(json["ide"],json["nombre"],json["descripcion"],json["recursosconfiguracion"])
     return jsonify({
-        "succes":True
+        "succes":True,
+        "message":"Se ha creado la configuracion correctamente"
     })
+    
+    
 @app.route("/crearcliente", methods=["POST"])
 def crearCliente():
+    json=request.get_json()
+    gestor.agregarCliente(json["nit"],json["nombre"],json["usuario"],json["clave"],json["direccion"],json["correo"])
     return jsonify({
-        "succes":True
+        "succes":True,
+        "message":"Se ha creado el cliente nuevo correctamente"
     })
+    
     
 @app.route("/crearinstancia", methods=["POST"])
 def crearInstancia():
+    json=request.get_json()
+    gestor.agregarInstancia(json["ide"],json["idconfiguracion"],json["nombre"],json["fechainicio"],json["estado"],json["fechafinal"])
     return jsonify({
-        "succes":True
+        "succes":True,
+        "message":"Se ha creado la instancia correctamente"
     })
+    
+    
+    #FUNCIONES U OPERACIONES DEL SISTEMA
 @app.route("/generarfactura", methods=["POST"])
 def generarFactura():
     return jsonify({
