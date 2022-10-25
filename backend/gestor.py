@@ -1,5 +1,6 @@
 
 from usuario import Usuario
+from cancion import Cancion
 import json
 from xml.dom.minidom import Element
 import xml.etree.ElementTree as ET
@@ -18,10 +19,25 @@ class Gestor:
 
     def obtener_usuario(self,user,password):
         for x in self.usuarios:
-            if x.user==user and x.password==password:   
+            if x.user==user and x.password==password:
                 return x
         return None
     
+    def agregar_cancion(self,nombre,artista,imagen,album):
+        nuevo=Cancion(nombre,artista,imagen,album)
+        self.canciones.append(nuevo)
+        return True
     
-    def entradaConfig(archivo):
-        print()
+    def obtener_canciones(self):
+        json=[]
+        for i in self.canciones:
+            cancion={
+                'name':i.name,
+                'artist':i.artist,
+                'image':i.image,
+                'album':i.album
+            }
+            json.append(cancion)
+        return json
+    
+    
