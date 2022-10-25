@@ -18,6 +18,7 @@ class Gestor:
         self.categorias=[]
         self.configuraciones=[]
         self.recursos=[]
+        self.json=[]
         
     def agregarCategoria(self,ide,nombre,descripcion,cargaTrabajo):
         nuevo=Categoria(ide,nombre,descripcion,cargaTrabajo)
@@ -37,12 +38,30 @@ class Gestor:
     def agregarCliente(self,nit,nombre,usuario,clave,direccion,correo):
         nuevo=Cliente(nit,nombre,usuario,clave,direccion,correo)
         self.clientes.append(nuevo)
+        print(self.clientes)
         return True
     
     def agregarInstancia(self,ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal):
         nuevo=Instancia(ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal)
         self.instancias.append(nuevo)
         return True
+    
+    def obtenerDatos(self):
+        self.json=[]
+        for element in self.clientes:
+            
+            cliente={
+                "nit":element.nit,
+                "Nombre":element.nombre,
+                "Usuario":element.usuario,
+                "Clave":element.clave,
+                "Direccion":element.direccion,
+                "Correo":element.correo
+            }
+            self.json.append(cliente)
+            print (self.json)
+        return self.json
+    
         
          
 

@@ -35,9 +35,9 @@ def listado():
     
 @app.route("/consultardatos", methods=["GET"])
 def consultarDatos():
-    return jsonify({
-        "succes":True
-    })
+    consulta=gestor.obtenerDatos()
+    return jsonify(consulta),200
+
     
     #RUTAS PARA INGRESAR DATOS DE MANERA INDIVIDUAL DEPENDIENDO LA CATEGORIA REQUERIDA
 @app.route("/crearrecurso", methods=["POST"])
