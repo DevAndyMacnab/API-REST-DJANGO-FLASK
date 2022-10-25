@@ -1,6 +1,4 @@
-
 from flask import Blueprint, request, render_template, redirect, url_for, flash
-from tkinter.filedialog import askopenfile
 from flask import Flask, Flask,request
 from flask import *
 from flask.json import jsonify
@@ -16,29 +14,13 @@ gestor=Gestor()
 def home():
     return "Los alumnos de IPC2 B van a ganar"
 
-@app.route('/login/<user>/<password>' )
-def login(user=None,password=None):
-    res=gestor.obtener_usuario(user,password)
-    if res==None:
-        return '{"data":false,"message":"Tu usuario no existe o es invalido"}'
-    return '{"data":true,"message":"Bienvenido"}'
-    
-@app.route('/login')
-def login2():
-    json=request.get_json()
-    res=gestor.obtener_usuario(json['user'],json['password'])
-    if res==None:
-        return jsonify({"data":False,"message":"Tu usuario no existe o es invalido"})
-    return jsonify({"data":True,"message":"Bienvenido"})
     
  #RUTAS CORRESPONDIENTES PARA NUESTRO BACKEND: ACA IRAN ENLAZADAS LAS FUNCIONES CREADAS CON POO   
     
 @app.route('/config', methods=["POST"])
 def config():
     if request.method=='POST':
-        archivoConfig=askopenfile()
-    
-    
+        
         return jsonify({
             "succes":True
         })
@@ -46,8 +28,6 @@ def config():
 @app.route("/listado", methods=["POST"])
 def listado():
     
-    archivoListado=askopenfile()
-    print(archivoListado)
     return jsonify({
         "succes":True
     })
@@ -66,9 +46,18 @@ def crearRecurso():
     
 @app.route("/crearcategoria", methods=["POST"])
 def crearCategoria():
+    
+    json=request.get_json()
+    gestor.agregarCategoria(json["ide"],json["nombre"],json["descripcion"],json["cargatrabajo"])
     return jsonify({
-        "succes":True
-    })
+        "ID":json["ide"],
+        "Nombre":json["nombre"],
+        "Descripcion":json["descripcion"],
+        "Carga de Trabajo":json["cargatrabajo"],
+        "message":"Se ha creado la categoria correctamente!"
+                    })
+    
+    
 @app.route("/crearconfiguracion", methods=["POST"])
 def crearConfiguracion():
     return jsonify({
