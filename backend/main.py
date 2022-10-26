@@ -4,6 +4,7 @@ from flask import *
 from flask.json import jsonify
 from flask_cors import CORS
 from gestor import Gestor
+from xml.etree import ElementTree as ET
 
 app=Flask(__name__)
 app.config["DEBUG"]=True
@@ -116,6 +117,22 @@ def ayuda():
 def resetear():
     gestor.resetearDatos()
     return jsonify({"message":"Los datos se han borrado correctamente"})
+
+@app.route("/agregarconfiguraciones",methods=["POST"])
+def agregarConfiguraciones():
+    xmlConfig=request.data.decode("utf-8")
+    raiz=ET.XML(xmlConfig)
+    
+    for element in raiz:
+        print(element.attrib)
+    
+@app.route("/agregarconsumos",methods=["POST"])
+def agregarConsumos():
+    xmlConsumos=request.data.decode("utf-8")
+    raiz=ET.XML(xmlConsumos)
+    
+    for element in raiz:
+        print( element.attrib)
 
 
 if __name__ == "__main__":

@@ -118,6 +118,9 @@ class Gestor:
         self.configuraciones=[]
         self.recursos=[]
         self.categorias=[]
+        
+    
+        
     
         
          
