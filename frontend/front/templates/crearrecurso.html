@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+<div class="container py-4">
+  <h1 style="text-align: center">Inserta un nuevo recurso</h1>
+</div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col">
+      {% if form.errors %}
+      <p style="color: rgb(204, 74, 74)">
+        Por favor, completa todos los campos, todos son necesarios
+      </p>
+      {% endif %}
+      <form  action="/crearrecurso/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="ide" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="id_ide" name="ide" />
+        </div>
+        <div class="mb-3">
+          <label for="nombre class="form-label">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id_nombre"
+            name="nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="abreviatura class="form-label">Abreviatura:</label>
+          <input type="text" class="form-control" id="id_abreviatura" name="abreviatura" />
+        </div>
+
+        <div class="mb-3">
+          <label for="metrica" class="form-label">Metrica</label>
+          <input type="text" class="form-control" id="id_metrica" name="metrica" />
+        </div>
+
+        <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo:</label>
+            <input type="text" class="form-control" id="id_tipo" name="tipo" />
+        </div>
+
+          <div class="mb-3">
+            <label for="valorxhora" class="form-label">Valor por Hora:</label>
+            <input type="text" class="form-control" id="id_valorxhora" name="valorxhora" />
+          </div>
+          
+
+
+
+
+        <button type="submit" class="btn btn-dark btn-lg">
+          Agregar Recurso
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

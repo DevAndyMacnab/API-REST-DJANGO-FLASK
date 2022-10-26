@@ -46,25 +46,40 @@
 
             <li class="nav-item">
               <!--BEGIN Nuevo codigo-->
-                <a class="nav-link" href="{% url 'add' %}">Agregar Contenido</a>
-              </li>
+              <a class="nav-link" href="{% url 'crearcategoria' %}"
+                >Categoria</a
+              >
+            </li>
+            <li class="nav-item">
+              <!--BEGIN Nuevo codigo-->
+              <a class="nav-link" href="{% url 'crearrecurso' %}"
+                >Recurso</a
+              >
+            </li>
+            <li class="nav-item">
+              <!--BEGIN Nuevo codigo-->
+              <a class="nav-link" href="{% url 'crearconfiguracion' %}"
+                >Configuracion</a
+              >
+            </li>
+            <li class="nav-item">
+              <!--BEGIN Nuevo codigo-->
+              <a class="nav-link" href="{% url 'crearcliente' %}"
+                >Cliente</a
+              >
+            </li>
+            <li class="nav-item">
+              <!--BEGIN Nuevo codigo-->
+              <a class="nav-link" href="{% url 'crearinstancia' %}"
+                >Instancia</a
+              >
+            </li>
 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'load' %}">Cargar Archivo</a>
             </li>
             <!--END Nuevo codigo-->
           </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-secondary" type="submit">
-              Buscar
-            </button>
-          </form>
         </div>
       </div>
     </nav>

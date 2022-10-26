@@ -1,45 +1,107 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Bienvenido a mas alla del ejemplo</h1>
-        <p class="lead text-muted"> No se rindan ya falta poquito</p>
-    </div>
+  <div class="container">
+    <h1 class="jumbotron-heading">HomePage - API - View Data</h1>
+  </div>
 </section>
 
 <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        {% for cancion in canciones%}
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow" style="width: 23rem;">
-            <img class="card-img-top" style="width: 23rem; height: 23rem; " src="{{cancion.image}}" alt="{{cancion.name}}">
-            <div class="card-body">
-                <h5 class="card-title">{{cancion.name}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{cancion.artist}}</h6>
-              <p class="card-text" style="text-align: justify; height: 10rem;">{{cancion.album}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
-                  <button type="button" class="btn btn-sm btn-dark">Ver más</button>
-                </div>
+  <div class="container">
+    <div class="row">
+      {% for dato in datos%}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow" style="width: 23rem">
+          <div class="card-body">
+            <h5 class="card-title">{{dato.DATO}}</h5>
+            {% if dato.nit %}
+            <h6 class="card-subtitle mb-2 text-muted">NIT: {{dato.nit}}</h6>
+            {% endif %}
+            {% if dato.ID %}
+            <h6 class="card-subtitle mb-2 text-muted">ID: {{dato.ID}}</h6>
+            {% endif %}
+            {% if dato.Abreviatura %}
+            <h6 class="card-subtitle mb-2 text-muted">Abreviatura: {{dato.Abreviatura}}</h6>
+            {% endif %}
+
+            {% if dato.IDdeconfiguracion %}
+            <h6 class="card-subtitle mb-2 text-muted">ID de Configuracion: {{dato.IDdeconfiguracion}}</h6>
+            {% endif %}
+
+            {% if dato.Nombre %}
+            <p >Nombre: {{dato.Nombre}} </p>
+            {% endif %}
+            {% if dato.Usuario %}
+            <p >Usuario: {{dato.Usuario}} </p>
+            {% endif %}
+
+            {% if dato.Clave %}
+            <p >Clave: {{dato.Clave}} </p>
+            {% endif %}
+
+            {% if dato.Direccion %}
+            <p >Direccion: {{dato.Direccion}} </p>
+            {% endif %}
+
+            {% if dato.Correo %}
+            <p>Correo: {{dato.Correo}} </p>
+            {% endif %}
+
+            {% if dato.Metrica %}
+            <p>Metrica: {{dato.Metrica}} </p>
+            {% endif %}
+
+            {% if dato.Tipo %}
+            <p>Tipo: {{dato.Tipo}} </p>
+            {% endif %}
+
+            {% if dato.ValorporHora %}
+            <p>Valor por hora: {{dato.ValorporHora}} </p>
+            {% endif %}
+
+
+            {% if dato.Descripcion %}
+            <p>Descripcion: {{dato.Descripcion}} </p>
+            {% endif %}
+            {% if dato.CargadeTrabajo %}
+            <p>Carga de Trabajo: {{dato.CargadeTrabajo}} </p>
+            {% endif %}
+
+            {% if dato.RecursosdeConfiguracion %}
+            <p>Recursos de Configuracion: {{dato.RecursosdeConfiguracion}} </p>
+            {% endif %}
+
+            {% if dato.Estado %}
+            <p>Estado: {{dato.Estado}} </p>
+            {% endif %}
+
+            {% if dato.Fechadeinicio %}
+            <p>Fecha de inicio: {{dato.Fechadeinicio}} </p>
+            {% endif %}
+
+            {% if dato.FechadeFinalizacion %}
+            <p>Fecha de Finalizacion: {{dato.FechadeFinalizacion}} </p>
+            {% endif %}
+
+            
+
+
+
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Ver
+                </button>
+                <button type="button" class="btn btn-sm btn-dark">
+                  Ver más
+                </button>
               </div>
             </div>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
   </div>
+</div>
 {% endblock content %}
-
-<footer class="text-muted">
-    <div class="container">
-        <p class="float-right">
-            <a href="{% url 'front-login' %}">Log out</a>
-        </p>
-        <p>Ejemplo de Tienda de Productos &copy; Bootstrap.</p>
-        <p>¿Nuevos en Bootstrap? <a href="../../">Visiten la pagina oficial </a> o consulten <a
-                href="../../getting-started/"> la guía de inicio</a>.</p>
-    </div>
-</footer>

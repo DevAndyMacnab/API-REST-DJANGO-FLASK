@@ -13,7 +13,7 @@ class ConfiguracionForm(forms.Form):
     ide=forms.CharField(label="ide")
     nombre=forms.CharField(label="nombre")
     descripcion=forms.CharField(label="descripcion")
-    recursosConfiguracion=forms.CharField(label="recursosConfiguracion")
+    recursosconfiguracion=forms.CharField(label="recursosconfiguracion")
     
 class RecursoForm(forms.Form):
     ide=forms.CharField(label="ide")

@@ -3,8 +3,6 @@ from Categoria.configuracion import Configuracion
 from Categoria.recurso import Recurso
 from Cliente.cliente import Cliente
 from Cliente.instancia import Instancia
-
-
 import json
 from xml.dom.minidom import Element
 import xml.etree.ElementTree as ET
@@ -56,7 +54,7 @@ class Gestor:
                 "Abreviatura":element.abreviatura,
                 "Metrica":element.metrica,
                 "Tipo":element.tipo,
-                "Valor por Hora":element.valorxHora  
+                "ValorporHora":element.valorxHora  
             }
             self.json.append(recurso)
             
@@ -66,7 +64,7 @@ class Gestor:
                 "ID":element.ide,
                 "Nombre":element.nombre,
                 "Descripcion":element.descripcion,
-                "Carga de Trabajo":element.cargaTrabajo
+                "CargadeTrabajo":element.cargaTrabajo
                 
                 
             }
@@ -78,7 +76,7 @@ class Gestor:
                 "ID":element.ide,
                 "Nombre":element.nombre,
                 "Descripcion":element.descripcion,
-                "Recursos de Configuracion":element.recursosConfiguracion,
+                "RecursosdeConfiguracion":element.recursosConfiguracion,
                 
                 
             }
@@ -102,11 +100,11 @@ class Gestor:
             instancia={
                 "DATO": "INSTANCIA",
                 "ID":element.ide,
-                "ID de configuracion":element.idConfiguracion,
+                "IDdeconfiguracion":element.idConfiguracion,
                 "Nombre":element.nombre,
-                "Fecha de inicio":element.fechaInicio,
+                "Fechadeinicio":element.fechaInicio,
                 "Estado":element.estado,
-                "Fecha de Finalizacion":element.fechaFinal 
+                "FechadeFinalizacion":element.fechaFinal 
                 
                 
             }

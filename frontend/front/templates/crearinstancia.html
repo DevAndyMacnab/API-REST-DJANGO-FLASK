@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+<div class="container py-4">
+  <h1 style="text-align: center">Inserta una nueva categoria</h1>
+</div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col">
+      {% if form.errors %}
+      <p style="color: rgb(204, 74, 74)">
+        Por favor, completa todos los campos, todos son necesarios
+      </p>
+      {% endif %}
+      <form  action="/crearinstancia/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="ide" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="id_ide" name="ide" />
+        </div>
+        <div class="mb-3">
+          <label for="nombre class="form-label">ID de Configuracion:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id_idconfiguracion"
+            name="idconfiguracion"
+          />
+        </div>
+        <div class="mb-3">
+            <label for="nombre class="form-label">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="id_nombre"
+              name="nombre"
+            />
+          </div>
+        <div class="mb-3">
+          <label for="estado class="form-label">Estado:</label>
+          <input type="text" class="form-control" id="id_estado" name="estado" />
+        </div>
+        <div class="mb-3">
+          <label for="fechainicio" class="form-label">Fecha de inicio:</label>
+          <input type="date" class="form-control" id="id_fechainicio" name="fechainicio" />
+        </div>
+        <div class="mb-3">
+            <label for="fechafinal" class="form-label">Fecha de Finalizacion:</label>
+            <input type="date" class="form-control" id="id_fechafinal" name="fechafinal" />
+          </div>
+          
+        <button type="submit" class="btn btn-dark btn-lg">
+          Agregar Instancia
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
