@@ -48,9 +48,47 @@ class Gestor:
     
     def obtenerDatos(self):
         self.json=[]
+        for element in self.recursos:
+            recurso={
+                "DATO": "RECURSO",
+                "ID":element.ide,
+                "Nombre":element.nombre,
+                "Abreviatura":element.abreviatura,
+                "Metrica":element.metrica,
+                "Tipo":element.tipo,
+                "Valor por Hora":element.valorxHora  
+            }
+            self.json.append(recurso)
+            
+        for element in self.categorias:
+            categoria={
+                "DATO": "CATEGORIA",
+                "ID":element.ide,
+                "Nombre":element.nombre,
+                "Descripcion":element.descripcion,
+                "Carga de Trabajo":element.cargaTrabajo
+                
+                
+            }
+            self.json.append(categoria)
+            
+        for element in self.configuraciones:
+            configuracion={
+                "DATO": "CONFIGURACION",
+                "ID":element.ide,
+                "Nombre":element.nombre,
+                "Descripcion":element.descripcion,
+                "Recursos de Configuracion":element.recursosConfiguracion,
+                
+                
+            }
+            self.json.append(configuracion)
+            
+
         for element in self.clientes:
             
             cliente={
+                "DATO": "CLIENTE",
                 "nit":element.nit,
                 "Nombre":element.nombre,
                 "Usuario":element.usuario,
@@ -59,7 +97,21 @@ class Gestor:
                 "Correo":element.correo
             }
             self.json.append(cliente)
-            print (self.json)
+            
+        for element in self.instancias:
+            instancia={
+                "DATO": "INSTANCIA",
+                "ID":element.ide,
+                "ID de configuracion":element.idConfiguracion,
+                "Nombre":element.nombre,
+                "Fecha de inicio":element.fechaInicio,
+                "Estado":element.estado,
+                "Fecha de Finalizacion":element.fechaFinal 
+                
+                
+            }
+            self.json.append(instancia)
+        
         return self.json
     
         
