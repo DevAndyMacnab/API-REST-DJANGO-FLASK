@@ -111,6 +111,11 @@ def ayuda():
     return jsonify({
         "succes":True
     })
+    
+@app.route("/resetear",methods=["DELETE"])
+def resetear():
+    gestor.resetearDatos()
+    return jsonify({"message":"Los datos se han borrado correctamente"})
 
 
 if __name__ == "__main__":

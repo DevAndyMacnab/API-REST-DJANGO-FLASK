@@ -15,77 +15,45 @@
             <h5 class="card-title">{{dato.DATO}}</h5>
             {% if dato.nit %}
             <h6 class="card-subtitle mb-2 text-muted">NIT: {{dato.nit}}</h6>
-            {% endif %}
-            {% if dato.ID %}
+            {% endif %} {% if dato.ID %}
             <h6 class="card-subtitle mb-2 text-muted">ID: {{dato.ID}}</h6>
+            {% endif %} {% if dato.Abreviatura %}
+            <h6 class="card-subtitle mb-2 text-muted">
+              Abreviatura: {{dato.Abreviatura}}
+            </h6>
+            {% endif %} {% if dato.IDdeconfiguracion %}
+            <h6 class="card-subtitle mb-2 text-muted">
+              ID de Configuracion: {{dato.IDdeconfiguracion}}
+            </h6>
+            {% endif %} {% if dato.Nombre %}
+            <p>Nombre: {{dato.Nombre}}</p>
+            {% endif %} {% if dato.Usuario %}
+            <p>Usuario: {{dato.Usuario}}</p>
+            {% endif %} {% if dato.Clave %}
+            <p>Clave: {{dato.Clave}}</p>
+            {% endif %} {% if dato.Direccion %}
+            <p>Direccion: {{dato.Direccion}}</p>
+            {% endif %} {% if dato.Correo %}
+            <p>Correo: {{dato.Correo}}</p>
+            {% endif %} {% if dato.Metrica %}
+            <p>Metrica: {{dato.Metrica}}</p>
+            {% endif %} {% if dato.Tipo %}
+            <p>Tipo: {{dato.Tipo}}</p>
+            {% endif %} {% if dato.ValorporHora %}
+            <p>Valor por hora: {{dato.ValorporHora}}</p>
+            {% endif %} {% if dato.Descripcion %}
+            <p>Descripcion: {{dato.Descripcion}}</p>
+            {% endif %} {% if dato.CargadeTrabajo %}
+            <p>Carga de Trabajo: {{dato.CargadeTrabajo}}</p>
+            {% endif %} {% if dato.RecursosdeConfiguracion %}
+            <p>Recursos de Configuracion: {{dato.RecursosdeConfiguracion}}</p>
+            {% endif %} {% if dato.Estado %}
+            <p>Estado: {{dato.Estado}}</p>
+            {% endif %} {% if dato.Fechadeinicio %}
+            <p>Fecha de inicio: {{dato.Fechadeinicio}}</p>
+            {% endif %} {% if dato.FechadeFinalizacion %}
+            <p>Fecha de Finalizacion: {{dato.FechadeFinalizacion}}</p>
             {% endif %}
-            {% if dato.Abreviatura %}
-            <h6 class="card-subtitle mb-2 text-muted">Abreviatura: {{dato.Abreviatura}}</h6>
-            {% endif %}
-
-            {% if dato.IDdeconfiguracion %}
-            <h6 class="card-subtitle mb-2 text-muted">ID de Configuracion: {{dato.IDdeconfiguracion}}</h6>
-            {% endif %}
-
-            {% if dato.Nombre %}
-            <p >Nombre: {{dato.Nombre}} </p>
-            {% endif %}
-            {% if dato.Usuario %}
-            <p >Usuario: {{dato.Usuario}} </p>
-            {% endif %}
-
-            {% if dato.Clave %}
-            <p >Clave: {{dato.Clave}} </p>
-            {% endif %}
-
-            {% if dato.Direccion %}
-            <p >Direccion: {{dato.Direccion}} </p>
-            {% endif %}
-
-            {% if dato.Correo %}
-            <p>Correo: {{dato.Correo}} </p>
-            {% endif %}
-
-            {% if dato.Metrica %}
-            <p>Metrica: {{dato.Metrica}} </p>
-            {% endif %}
-
-            {% if dato.Tipo %}
-            <p>Tipo: {{dato.Tipo}} </p>
-            {% endif %}
-
-            {% if dato.ValorporHora %}
-            <p>Valor por hora: {{dato.ValorporHora}} </p>
-            {% endif %}
-
-
-            {% if dato.Descripcion %}
-            <p>Descripcion: {{dato.Descripcion}} </p>
-            {% endif %}
-            {% if dato.CargadeTrabajo %}
-            <p>Carga de Trabajo: {{dato.CargadeTrabajo}} </p>
-            {% endif %}
-
-            {% if dato.RecursosdeConfiguracion %}
-            <p>Recursos de Configuracion: {{dato.RecursosdeConfiguracion}} </p>
-            {% endif %}
-
-            {% if dato.Estado %}
-            <p>Estado: {{dato.Estado}} </p>
-            {% endif %}
-
-            {% if dato.Fechadeinicio %}
-            <p>Fecha de inicio: {{dato.Fechadeinicio}} </p>
-            {% endif %}
-
-            {% if dato.FechadeFinalizacion %}
-            <p>Fecha de Finalizacion: {{dato.FechadeFinalizacion}} </p>
-            {% endif %}
-
-            
-
-
-
 
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
@@ -102,6 +70,15 @@
       </div>
       {% endfor %}
     </div>
+    <form action="/home" method="DELETE">
+      {% csrf_token %}
+      <button type="reset" class="btn btn-dark btn-lg" >
+        Borrar Datos
+      </button>
+
+      </button>
+
+    </form>
   </div>
 </div>
 {% endblock content %}

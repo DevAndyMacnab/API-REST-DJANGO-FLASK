@@ -15,8 +15,11 @@ def home(request):
         response=requests.get(endpoint+"consultardatos")
         datos=response.json()
         contexto["datos"]=datos
+        
     except:
         print("Error en la API ")
+    if request.method=='DELETE':
+        print("HOLAAAA MUNDOOOOOO")
         
     return render(request, 'home.html',contexto)
 
@@ -86,6 +89,7 @@ def crearInstancia(request):
         return render(request, 'crearinstancia.html',{'form':form})
         
     return render(request, 'crearinstancia.html')
+
 
 
 def load(request):

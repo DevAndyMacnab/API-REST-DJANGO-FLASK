@@ -112,6 +112,13 @@ class Gestor:
         
         return self.json
     
+    def resetearDatos(self):
+        self.instancias=[]
+        self.clientes=[]
+        self.configuraciones=[]
+        self.recursos=[]
+        self.categorias=[]
+    
         
          
 
