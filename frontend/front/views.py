@@ -1,6 +1,7 @@
 import json
 from urllib import response
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from flask import jsonify
 from .forms import ClienteForm, ConfiguracionForm, FileForm, CategoriaForm, InstanciaForm, RecursoForm
 import requests
 
@@ -18,8 +19,7 @@ def home(request):
         
     except:
         print("Error en la API ")
-    if request.method=='DELETE':
-        print("HOLAAAA MUNDOOOOOO")
+    
         
     return render(request, 'home.html',contexto)
 
@@ -94,3 +94,9 @@ def crearInstancia(request):
 
 def load(request):
     return render(request, 'carga.html')
+
+def eliminarDatos(request):
+    if request.method=='GET':
+        response=requests.get(endpoint+"resetear")
+        if response.ok:
+            return redirect("/home")
