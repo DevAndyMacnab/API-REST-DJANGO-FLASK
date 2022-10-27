@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<archivoConfiguraciones>
+    <listaRecursos>
+        <recurso id="1">
+            <nombre> Memoria de acceso aleatorio </nombre>
+            <abreviatura> Ram </abreviatura>
+            <metrica> 4Gb </metrica>
+            <tipo> Hardware </tipo>
+            <valorXhora> 40 </valorXhora>
+        </recurso>
+        <recurso id="2">
+            <nombre> Unidad central de procesamiento </nombre>
+            <abreviatura> Cpu </abreviatura>
+            <metrica> 6 Nucleos </metrica>
+            <tipo> Hardware </tipo>
+            <valorXhora> 55 </valorXhora>
+        </recurso>
+        <recurso id="3">
+            <nombre> Disco duro Solido </nombre>
+            <abreviatura> ssd </abreviatura>
+            <metrica> 500Gb </metrica>
+            <tipo> Hardware </tipo>
+            <valorXhora> 25 </valorXhora>
+        </recurso>
+        <recurso id="4">
+            <nombre> Teclado </nombre>
+            <abreviatura> Tcl </abreviatura>
+            <metrica> N/A </metrica>
+            <tipo> Hardware </tipo>
+            <valorXhora> 60 </valorXhora>
+        </recurso>
+        <recurso id="5">
+            <nombre> Recurso5</nombre>
+            <abreviatura> R5 </abreviatura>
+            <metrica> 80BB </metrica>
+            <tipo> Software </tipo>
+            <valorXhora> 82.5 </valorXhora>
+        </recurso>
+    </listaRecursos>
+    <listaCategorias>
+        <categoria id="1">
+            <nombre> Categoria1 </nombre>
+            <descripcion> descripcion </descripcion>
+            <cargaTrabajo> Alta carga de trabajo </cargaTrabajo>
+            <listaConfiguraciones>
+                <configuracion id="1">
+                    <nombre> Cat1-Conf1 </nombre>
+                    <descripcion> Configuracion media </descripcion>
+                    <recursosConfiguracion>
+                        <recurso id="1"> 25 </recurso>
+                        <recurso id="3"> 5 </recurso>
+                    </recursosConfiguracion>
+                </configuracion>
+                <configuracion id="2">
+                    <nombre> Cat1-Conf2 </nombre>
+                    <descripcion> Configuracion baja </descripcion>
+                    <recursosConfiguracion>
+                        <recurso id="2"> 3 </recurso>
+                        <recurso id="4"> 7 </recurso>
+                    </recursosConfiguracion>
+                </configuracion>
+            </listaConfiguraciones>
+        </categoria>
+    </listaCategorias>
+    <listaClientes>
+        <cliente nit="2019160-k">
+            <nombre> Nombre </nombre>
+            <usuario> Usuario </usuario>
+            <clave> laveUsuario </clave>
+            <direccion> direccionCliente </direccion>
+            <correoElectronico> eMailCliente </correoElectronico>
+            <listaInstancias>
+                <instancia id="A35">
+                    <idConfiguracion> 1 </idConfiguracion>
+                    <nombre> Primera instancia </nombre>
+                    <fechaInicio> esta es una descripcion de la fecha 26/02/2003 </fechaInicio>
+                    <estado> $estado </estado>
+                    <fechaFinal> $descripcionFecha </fechaFinal>
+                </instancia>
+                <instancia id="A36">
+                    <idConfiguracion> 2 </idConfiguracion>
+                    <nombre> Segunda instancia </nombre>
+                    <fechaInicio> esta es una descripcion de la fecha 26/02/2003 </fechaInicio>
+                    <estado> Cancelada </estado>
+                    <fechaFinal> 27/06/2009 </fechaFinal>
+                </instancia>
+            </listaInstancias>
+        </cliente>
+    </listaClientes>
+</archivoConfiguraciones>

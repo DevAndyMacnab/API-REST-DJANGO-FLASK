@@ -13,4 +13,5 @@ urlpatterns=[
     path("cargarconfig/",views.cargarConfiguraciones, name="cargarconfig"),
     path("cargarconsumos/",views.cargarconsumos, name="cargarconsumos"),
     path("eliminarDatos/",views.eliminarDatos, name="eliminarDatos"),
+    path("ayuda/",views.ayuda, name="ayuda"),
 ]

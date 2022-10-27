@@ -121,8 +121,10 @@ def resetear():
 @app.route("/agregarconfiguraciones",methods=["POST"])
 def agregarconfiguraciones():
     xmlConfig=request.data.decode("utf-8")
-    
     raiz=ET.XML(xmlConfig)
+    
+    
+    
     return jsonify({"message":"todo agregado correctamente"})
     
     

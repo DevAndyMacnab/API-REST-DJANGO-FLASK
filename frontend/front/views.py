@@ -143,3 +143,6 @@ def eliminarDatos(request):
         response=requests.get(endpoint+"resetear")
         if response.ok:
             return redirect("/home")
+        
+def ayuda(request):
+    return render(request, 'ayuda.html')

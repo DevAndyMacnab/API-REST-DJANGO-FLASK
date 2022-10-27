@@ -3,6 +3,8 @@ from Categoria.configuracion import Configuracion
 from Categoria.recurso import Recurso
 from Cliente.cliente import Cliente
 from Cliente.instancia import Instancia
+from Consumo import Consumo
+
 import json
 from xml.dom.minidom import Element
 import xml.etree.ElementTree as ET
@@ -42,6 +44,9 @@ class Gestor:
     def agregarInstancia(self,ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal):
         nuevo=Instancia(ide,idConfiguracion,nombre,fechaInicio,estado,fechaFinal)
         self.instancias.append(nuevo)
+        return True
+    
+    def agregarConsumos(self):
         return True
     
     def obtenerDatos(self):

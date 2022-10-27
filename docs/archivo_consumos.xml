@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<listadoConsumos>
+    <consumo nitCliente="2019160-k" idInstancia="A35">
+        <tiempo> 2.6 </tiempo>
+        <fechaHora>15/06/2005</fechaHora>
+    </consumo>
+    <consumo nitCliente="2019160-k" idInstancia="A35">
+        <tiempo> 1 </tiempo>
+        <fechaHora> esto es la fecha 19/07/2009 y 25/12/2019 </fechaHora>
+    </consumo>
+    <consumo nitCliente="2019160-k" idInstancia="A35">
+        <tiempo> 5.18 </tiempo>
+        <fechaHora> esto es la fecha 14/08/2010</fechaHora>
+    </consumo>
+    <consumo nitCliente="2019160-k" idInstancia="A35">
+        <tiempo> 7.5 </tiempo>
+        <fechaHora> esto es la fecha 03/05/2012 </fechaHora>
+    </consumo>
+    <consumo nitCliente="2019160-k" idInstancia="A35">
+        <tiempo> 2.9 </tiempo>
+        <fechaHora> esto es la fecha 21/11/2017 </fechaHora>
+    </consumo>
+</listadoConsumos>
