@@ -2,7 +2,7 @@ import json
 from urllib import response
 from django.shortcuts import render, redirect
 from flask import jsonify
-from .forms import ClienteForm, ConfiguracionForm, FileForm, CategoriaForm, InstanciaForm, RecursoForm
+from .forms import ClienteForm, ConfiguracionForm, FileConfigForm, CategoriaForm, InstanciaForm, RecursoForm, FileIntakeForm
 import requests
 
 # Create your views here.
@@ -92,8 +92,51 @@ def crearInstancia(request):
 
 
 
-def load(request):
-    return render(request, 'carga.html')
+def cargarConfiguraciones(request):
+    ctx={
+        "content":None,
+        "response":None
+    }
+    if request.method=='POST':
+        form=FileConfigForm(request.POST,request.FILES)
+        if form.is_valid():
+            f=request.FILES["file"] 
+            xml_binary=f.read()
+            print(xml_binary)
+            print(f.read())
+            xml=xml_binary.decode('utf-8')
+            ctx["content"]=xml
+            response=requests.post(endpoint+"agregarconfiguraciones",data=xml)
+            if response.ok:
+                ctx["response"]="Archivo XML de configuraciones cargado correctamente"   
+            else:
+                ctx["response"]="Hubo algun tipo de error en la ejecucion"
+        else:
+            return render(request,"cargar.html")
+    return render(request, 'carga.html', ctx)
+
+def cargarconsumos(request):
+    ctx={
+        "content":None,
+        "response":None
+    }
+    if request.method=='POST':
+        form=FileConfigForm(request.POST,request.FILES)
+        if form.is_valid():
+            f=request.FILES["file"] 
+            xml_binary=f.read()
+            print(xml_binary)
+            print(f.read())
+            xml=xml_binary.decode('utf-8')
+            ctx["content"]=xml
+            response=requests.post(endpoint+"agregarconsumos",data=xml)
+            if response.ok:
+                ctx["response"]="Archivo XML de consumos se ha cargado correctamente"   
+            else:
+                ctx["response"]="Hubo algun tipo de error en la ejecucion"
+        else:
+            return render(request,"cargarconsumos.html")
+    return render(request, 'cargarconsumos.html', ctx)
 
 def eliminarDatos(request):
     if request.method=='GET':

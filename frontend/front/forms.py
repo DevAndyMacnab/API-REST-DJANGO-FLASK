@@ -39,3 +39,8 @@ class InstanciaForm(forms.Form):
     estado=forms.CharField(label="estado")
     fechafinal=forms.CharField(label="fechafinal")
     
+class FileConfigForm(forms.Form):
+    file=forms.FileField(label="file")
+    
+class FileIntakeForm(forms.Form):
+    file=forms.FileField(label="file")

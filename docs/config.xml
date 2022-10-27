@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <archivoConfiguraciones>
     <listaRecursos>
         <recurso id="$idRecurso">
@@ -8,7 +8,7 @@
             <tipo> $tipoRecurso </tipo>
             <valorXhora> valorNumerico </valorXhora>
         </recurso>
- ...
+
     </listaRecursos>
     <listaCategorias>
         <categoria id="$idCateoria">
@@ -21,13 +21,13 @@
                     <descripcion> $descripcionConfiguracion </descripcion>
                     <recursosConfiguracion>
                         <recurso id="$idRecurso"> cantidadRecurso </recurso>
- ...
+
                     </recursosConfiguracion>
                 </configuracion>
-...
+
             </listaConfiguraciones>
         </categoria>
- ...
+
     </listaCategorias>
     <listaClientes>
         <cliente nit="$nitCliente">
@@ -44,10 +44,10 @@
                     <estado> $estado </estado>
                     <fechaFinal> $descripcionFecha </fechaFinal>
                 </instancia>
- ...
+
             </listaInstancias>
- ...
+
         </cliente>
- ...
+
     </listaClientes>
 </archivoConfiguraciones>

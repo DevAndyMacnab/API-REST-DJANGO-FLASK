@@ -10,6 +10,7 @@ urlpatterns=[
     path('crearcliente/', views.crearCliente, name="crearcliente"),
     path('crearinstancia/', views.crearInstancia, name="crearinstancia"),
     
-    path("load/",views.load, name="load"),
+    path("cargarconfig/",views.cargarConfiguraciones, name="cargarconfig"),
+    path("cargarconsumos/",views.cargarconsumos, name="cargarconsumos"),
     path("eliminarDatos/",views.eliminarDatos, name="eliminarDatos"),
 ]

@@ -119,20 +119,19 @@ def resetear():
     return jsonify({"message":"Los datos se han borrado correctamente"})
 
 @app.route("/agregarconfiguraciones",methods=["POST"])
-def agregarConfiguraciones():
+def agregarconfiguraciones():
     xmlConfig=request.data.decode("utf-8")
-    raiz=ET.XML(xmlConfig)
     
-    for element in raiz:
-        print(element.attrib)
+    raiz=ET.XML(xmlConfig)
+    return jsonify({"message":"todo agregado correctamente"})
+    
     
 @app.route("/agregarconsumos",methods=["POST"])
 def agregarConsumos():
     xmlConsumos=request.data.decode("utf-8")
     raiz=ET.XML(xmlConsumos)
+    return jsonify({"message":"todo agregado correctamente"})
     
-    for element in raiz:
-        print( element.attrib)
 
 
 if __name__ == "__main__":

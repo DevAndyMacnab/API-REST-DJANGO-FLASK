@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container py-2">
-    <h1 style="text-align: center;"> Carga de archivo de Configuraciones </h1>
+    <h1 style="text-align: center;"> Carga de archivo de Consumos </h1>
 </div>
 <div class="container py-6">
-<form action="/cargarconfig/" method="POST" enctype="multipart/form-data">
+<form action="/cargarconsumos/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 <label for="file">Cargar un archivo</label>
 <br>
