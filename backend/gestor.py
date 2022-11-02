@@ -18,6 +18,7 @@ class Gestor:
         self.categorias=[]
         self.configuraciones=[]
         self.recursos=[]
+        self.consumos=[]
         self.json=[]
         
     def agregarCategoria(self,ide,nombre,descripcion,cargaTrabajo):
@@ -47,6 +48,8 @@ class Gestor:
         return True
     
     def agregarConsumos(self):
+        #nuevo=Consumo(nit,ide,tiempo,fechahora)
+        #self.consumos.append(nuevo)
         return True
     
     def obtenerDatos(self):
@@ -114,7 +117,16 @@ class Gestor:
                 
             }
             self.json.append(instancia)
-        
+            
+            for element in self.consumos:
+                consumo={
+                    "DATO":"CONSUMO",
+                    "ID":element.ide,
+                    "nit":element.nit,
+                    "tiempo":element.tiempo,
+                    "fechahora":element.fechahora
+                }
+            print(consumo)
         return self.json
     
     def resetearDatos(self):
@@ -123,6 +135,7 @@ class Gestor:
         self.configuraciones=[]
         self.recursos=[]
         self.categorias=[]
+        self.consumos=[]
         
     
         

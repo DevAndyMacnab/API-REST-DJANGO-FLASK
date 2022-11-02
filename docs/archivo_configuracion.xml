@@ -80,7 +80,7 @@
                 <instancia id="A36">
                     <idConfiguracion> 2 </idConfiguracion>
                     <nombre> Segunda instancia </nombre>
-                    <fechaInicio> esta es una descripcion de la fecha 26/02/2003 </fechaInicio>
+                    <fechaInicio> 26/02/2003 </fechaInicio>
                     <estado> Cancelada </estado>
                     <fechaFinal> 27/06/2009 </fechaFinal>
                 </instancia>

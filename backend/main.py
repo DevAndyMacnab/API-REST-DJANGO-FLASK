@@ -122,8 +122,43 @@ def resetear():
 def agregarconfiguraciones():
     xmlConfig=request.data.decode("utf-8")
     raiz=ET.XML(xmlConfig)
-    
-    
+    for element in raiz:
+        recursos= element.findall("recurso")
+        
+        for recurso in recursos:
+            ide=recurso.attrib["id"]
+            nombre=recurso.find("nombre").text
+            abreviatura=recurso.find("abreviatura").text
+            metrica=recurso.find("metrica").text
+            tipo=recurso.find("tipo").text
+            valorxhora=recurso.find("valorXhora").text
+            gestor.agregarRecurso(ide,nombre,abreviatura,metrica,tipo,valorxhora)
+            print("AQUI ", ide, nombre, abreviatura)
+        categorias= element.findall("categoria")
+        for categoria in categorias:
+            ide=categoria.attrib["id"]
+            nombre=categoria.find("nombre").text
+            descripcion=categoria.find("descripcion").text
+            cargatrabajo=categoria.find("cargaTrabajo").text
+            print("CATEGORIAS ",ide , nombre , descripcion )
+            gestor.agregarCategoria(ide,nombre,descripcion,cargatrabajo)
+            
+            for configuraciones in categoria:
+                configuracion=configuraciones.findall("configuracion")
+                for elemento in configuracion:
+                    ide=elemento.attrib["id"]
+                    nombre=elemento.find("nombre").text
+                    descripcion=elemento.find("descripcion").text
+                    print("CONFIGURACIONES" , ide, nombre, descripcion)
+                    for source in elemento:
+                        idrecursos=source.findall("recurso")
+                        for ele in idrecursos:
+                            ide=ele.attrib["id"]
+                            
+            
+            
+                
+                
     
     return jsonify({"message":"todo agregado correctamente"})
     
