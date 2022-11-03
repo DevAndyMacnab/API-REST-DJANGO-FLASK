@@ -104,6 +104,9 @@ def generarFactura():
 
 @app.route("/reportes", methods=["GET"])
 def reportes():
+    gestor.generarReporte()
+    
+    
     return jsonify({
         "succes":True
     })

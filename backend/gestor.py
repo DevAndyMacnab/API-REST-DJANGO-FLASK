@@ -128,6 +128,8 @@ class Gestor:
             }
             self.json.append(consumo)
             
+            
+        
         return self.json
     
     def resetearDatos(self):
@@ -139,14 +141,16 @@ class Gestor:
         self.consumos=[]
         
     def generarFactura(self):
-        mensajes=[]
+        self.mensajes=[]
         print("ENTRAMOS A GENERAR FACTURA")
+        self.mensajes.append({
+            "message":"Se ha generado la factura correctamente"
+        })
         for element in self.clientes:
-            print(element.nombre)
-            print("NIT CLIENTE "+element.nit)
+            
             for consumo in self.consumos:
                 print(consumo.nit)
-                if element.nit==consumo.nit:
+                if consumo.nit==element.nit:
                     print("si estan iguales we felicidades")
                     mensaje={
                         "Cliente": element.nombre,
@@ -155,8 +159,16 @@ class Gestor:
                         "Tiempo":consumo.tiempo,
                         "FechaHora":consumo.fechahora
                     }
+                    self.mensajes.append(mensaje)
 
-        return mensajes
+        return self.mensajes
+    
+    
+    def generarReporte(self):
+        consulta=self.obtenerDatos()
+        f=open("reporte.pdf","w")
+        f.write()
+        f.close()
         
         
     
