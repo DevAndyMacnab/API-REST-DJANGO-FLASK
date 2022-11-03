@@ -5,7 +5,7 @@ from flask.json import jsonify
 from flask_cors import CORS
 from gestor import Gestor
 from xml.etree import ElementTree as ET
-
+import pdfkit
 app=Flask(__name__)
 app.config["DEBUG"]=True
 CORS(app)
@@ -104,9 +104,7 @@ def generarFactura():
 
 @app.route("/reportes", methods=["GET"])
 def reportes():
-    gestor.generarReporte()
-    
-    
+    mensaje=gestor.generarReporte()
     return jsonify({
         "succes":True
     })

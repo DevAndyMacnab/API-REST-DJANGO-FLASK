@@ -9,7 +9,8 @@ from xml.dom.minidom import Element
 import xml.etree.ElementTree as ET
 from flask import Flask, Flask,request
 from flask.json import jsonify
-
+import pdfkit
+import fitz
 class Gestor:
     def __init__(self):
         self.clientes=[]
@@ -166,9 +167,33 @@ class Gestor:
     
     def generarReporte(self):
         consulta=self.obtenerDatos()
-        f=open("reporte.pdf","w")
+        f=fitz.open()
+        pagina=f.new_page()
+        posicion=fitz.Point(100,200)
+        
+        for element in consulta:
+            for ele in element:
+                
+                mensaje="<h2>" + ele + "</h2>" + "<br>"
+                
+            
+        msg='''
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+        '''
+        pagina.insert_text(posicion,msg,fontsize=15)
         f.write()
-        f.close()
+        f.save("prueba.pdf",pretty=True)  
         
         
     
