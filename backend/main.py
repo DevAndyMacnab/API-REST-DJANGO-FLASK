@@ -98,20 +98,16 @@ def crearInstancia():
     #FUNCIONES U OPERACIONES DEL SISTEMA
 @app.route("/generarfactura", methods=["POST"])
 def generarFactura():
-    return jsonify({
-        "succes":True
-    })
+    consulta=gestor.generarFactura()
+
+    return jsonify(consulta),200
 
 @app.route("/reportes", methods=["GET"])
 def reportes():
     return jsonify({
         "succes":True
     })
-@app.route("/ayuda", methods=["GET"])
-def ayuda():
-    return jsonify({
-        "succes":True
-    })
+
     
 @app.route("/resetear",methods=["GET"])
 def resetear():

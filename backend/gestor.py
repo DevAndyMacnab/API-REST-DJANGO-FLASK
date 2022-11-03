@@ -138,6 +138,27 @@ class Gestor:
         self.categorias=[]
         self.consumos=[]
         
+    def generarFactura(self):
+        mensajes=[]
+        print("ENTRAMOS A GENERAR FACTURA")
+        for element in self.clientes:
+            print(element.nombre)
+            print("NIT CLIENTE "+element.nit)
+            for consumo in self.consumos:
+                print(consumo.nit)
+                if element.nit==consumo.nit:
+                    print("si estan iguales we felicidades")
+                    mensaje={
+                        "Cliente": element.nombre,
+                        "Usuario": element.usuario,
+                        "Instancia":consumo.ide,
+                        "Tiempo":consumo.tiempo,
+                        "FechaHora":consumo.fechahora
+                    }
+
+        return mensajes
+        
+        
     
         
     
