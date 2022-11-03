@@ -55,6 +55,15 @@
             <p>Fecha de Finalizacion: {{dato.FechadeFinalizacion}}</p>
             {% endif %}
 
+            {% if dato.fechahora %}
+            <p>Fecha Hora: {{dato.fechahora}}</p>
+            {% endif %}
+
+            {% if dato.tiempo %}
+            <p>Tiempo: {{dato.tiempo}}</p>
+            {% endif %}
+
+
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary">

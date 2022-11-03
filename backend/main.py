@@ -225,18 +225,17 @@ def agregarconfiguraciones():
 def agregarConsumos():
     xmlConsumos=request.data.decode("utf-8")
     raiz=ET.XML(xmlConsumos)
-    
+    contconsumos=0
     for element in raiz:
+        contconsumos+=1
+        nit=element.attrib["nitCliente"]
+        ide=element.attrib["idInstancia"]
+        tiempo=element.find("tiempo").text
+        fechahora=element.find("fechaHora").text
+        print("CONSUMOS "+ nit + ide)
+        gestor.agregarConsumos(nit,ide,tiempo,fechahora)
         
-        
-            nit=element.attrib["nitCliente"]
-            ide=element.attrib["idInstancia"]
-            tiempo=element.find("tiempo").text
-            fechahora=element.find("fechaHora").text
-            print("CONSUMOS "+ nit + ide)
-            gestor.agregarConsumos(nit,ide,tiempo,fechahora)
-        
-    return jsonify({"message":"todo agregado correctamente"})
+    return jsonify("Se han cargado: " + str(contconsumos) + " consumos")
     
 
 

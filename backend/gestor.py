@@ -126,6 +126,7 @@ class Gestor:
                 "tiempo":element.tiempo,
                 "fechahora":element.fechahora
             }
+            self.json.append(consumo)
             
         return self.json
     

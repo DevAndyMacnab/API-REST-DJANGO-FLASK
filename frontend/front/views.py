@@ -134,7 +134,7 @@ def cargarconsumos(request):
             ctx["content"]=xml
             response=requests.post(endpoint+"agregarconsumos",data=xml)
             if response.ok:
-                ctx["response"]="Archivo XML de consumos se ha cargado correctamente"   
+                ctx["response"]=response.json()   
             else:
                 ctx["response"]="Hubo algun tipo de error en la ejecucion"
         else:
