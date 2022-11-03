@@ -166,15 +166,14 @@ class Gestor:
     
     
     def generarReporte(self):
+        mensaje=""
         consulta=self.obtenerDatos()
         f=fitz.open()
         pagina=f.new_page()
         posicion=fitz.Point(100,200)
         
         for element in consulta:
-            for ele in element:
-                
-                mensaje="<h2>" + ele + "</h2>" + "<br>"
+           mensaje+= "\n" + str(element.values())
                 
             
         msg='''
@@ -191,7 +190,7 @@ class Gestor:
 </body>
 </html>
         '''
-        pagina.insert_text(posicion,msg,fontsize=15)
+        pagina.insert_text(posicion,mensaje,fontsize=6)
         f.write()
         f.save("prueba.pdf",pretty=True)  
         
