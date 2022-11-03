@@ -122,9 +122,37 @@ def resetear():
 def agregarconfiguraciones():
     xmlConfig=request.data.decode("utf-8")
     raiz=ET.XML(xmlConfig)
+    Recursos=[]
+    mensaje=""
+    
+    for cosa in raiz:
+        clientes=cosa.findall("cliente")
+        for cliente in clientes:
+            nit=cliente.attrib["nit"]
+            nombre=cliente.find("nombre").text
+            usuario=cliente.find("usuario").text
+            clave=cliente.find("clave").text
+            direccion=cliente.find("direccion").text
+            correo=cliente.find("correoElectronico").text
+            gestor.agregarCliente(nit,nombre,usuario,clave,direccion,correo)
+            
+            for instancias in cliente:
+                instancia=instancias.findall("instancia")
+                for inst in instancia:
+                    ide=inst.attrib["id"]
+                    idConfig=inst.find("idConfiguracion").text
+                    nombre=inst.find("nombre").text
+                    fechaInicio=inst.find("fechaInicio").text
+                    estado=inst.find("estado").text
+                    fechaFinal=inst.find("fechaFinal").text
+                    gestor.agregarInstancia(ide,idConfig,nombre,fechaInicio,estado,fechaFinal)
+            
+                       
     for element in raiz:
-        recursos= element.findall("recurso")
         
+        
+        
+        recursos= element.findall("recurso")
         for recurso in recursos:
             ide=recurso.attrib["id"]
             nombre=recurso.find("nombre").text
@@ -133,7 +161,8 @@ def agregarconfiguraciones():
             tipo=recurso.find("tipo").text
             valorxhora=recurso.find("valorXhora").text
             gestor.agregarRecurso(ide,nombre,abreviatura,metrica,tipo,valorxhora)
-            print("AQUI ", ide, nombre, abreviatura)
+            
+            
         categorias= element.findall("categoria")
         for categoria in categorias:
             ide=categoria.attrib["id"]
@@ -150,10 +179,23 @@ def agregarconfiguraciones():
                     nombre=elemento.find("nombre").text
                     descripcion=elemento.find("descripcion").text
                     print("CONFIGURACIONES" , ide, nombre, descripcion)
+                    mensaje=""
                     for source in elemento:
                         idrecursos=source.findall("recurso")
                         for ele in idrecursos:
                             ide=ele.attrib["id"]
+                            recurso=ele.text
+                            Recursos.append({
+                                "ide":ide,
+                                "cantidad":recurso
+                            })
+                            mensaje+= "ID Recurso: " + ide +"," + "Cantidad Recurso: " +recurso 
+                            
+                            print(Recursos)
+                            
+                    gestor.agregarConfiguracion(ide,nombre,descripcion,mensaje)
+            
+            
                             
             
             

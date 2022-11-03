@@ -88,6 +88,7 @@ class Gestor:
                 
                 
             }
+        
             self.json.append(configuracion)
             
 
@@ -126,7 +127,7 @@ class Gestor:
                     "tiempo":element.tiempo,
                     "fechahora":element.fechahora
                 }
-            print(consumo)
+            
         return self.json
     
     def resetearDatos(self):
