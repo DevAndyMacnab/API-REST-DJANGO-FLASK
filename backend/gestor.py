@@ -4,7 +4,6 @@ from Categoria.recurso import Recurso
 from Cliente.cliente import Cliente
 from Cliente.instancia import Instancia
 from Consumo import Consumo
-
 import json
 from xml.dom.minidom import Element
 import xml.etree.ElementTree as ET
@@ -47,9 +46,9 @@ class Gestor:
         self.instancias.append(nuevo)
         return True
     
-    def agregarConsumos(self):
-        #nuevo=Consumo(nit,ide,tiempo,fechahora)
-        #self.consumos.append(nuevo)
+    def agregarConsumos(self,nit,ide,tiempo,fechahora):
+        nuevo=Consumo(nit,ide,tiempo,fechahora)
+        self.consumos.append(nuevo)
         return True
     
     def obtenerDatos(self):
@@ -119,14 +118,14 @@ class Gestor:
             }
             self.json.append(instancia)
             
-            for element in self.consumos:
-                consumo={
-                    "DATO":"CONSUMO",
-                    "ID":element.ide,
-                    "nit":element.nit,
-                    "tiempo":element.tiempo,
-                    "fechahora":element.fechahora
-                }
+        for element in self.consumos:
+            consumo={
+                "DATO":"CONSUMO",
+                "ID":element.ide,
+                "nit":element.nit,
+                "tiempo":element.tiempo,
+                "fechahora":element.fechahora
+            }
             
         return self.json
     

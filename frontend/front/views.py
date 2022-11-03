@@ -95,7 +95,8 @@ def crearInstancia(request):
 def cargarConfiguraciones(request):
     ctx={
         "content":None,
-        "response":None
+        "response":None,
+        "cantidades":None
     }
     if request.method=='POST':
         form=FileConfigForm(request.POST,request.FILES)
@@ -108,7 +109,9 @@ def cargarConfiguraciones(request):
             ctx["content"]=xml
             response=requests.post(endpoint+"agregarconfiguraciones",data=xml)
             if response.ok:
-                ctx["response"]="Archivo XML de configuraciones cargado correctamente"   
+                ctx["response"]=response.json()
+                ctx["cantidades"]=response.json()
+                print(ctx["cantidades"])
             else:
                 ctx["response"]="Hubo algun tipo de error en la ejecucion"
         else:
